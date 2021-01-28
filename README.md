@@ -38,16 +38,6 @@ RUN apt-get install -y build-essential automake pkg-config libevent-dev bsdmainu
 # OpenSSL 설치
 RUN apt-get install -y libtool autotools-dev autoconf libssl-dev
 
-# Boost 설치
-RUN apt-get install -y libboost-all-dev
-
-# software-properties-common, python-software-properties 설치
-RUN apt-get install -y software-properties-common python-software-properties
-
-# libdb 4.8 설치
-RUN add-apt-repository -y ppa:bitcoin/bitcoin
-RUN apt-get update
-RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
 # 관련 라이브러리 설치
 RUN apt-get install -y libminiupnpc-dev libqrencode-dev
