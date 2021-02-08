@@ -50,3 +50,6 @@ RUN apt-get install -y libprotobuf-dev protobuf-compiler
 
 
 출처: https://mystarlight.tistory.com/171 [커피향처럼]
+
+python3.7
+https://gist.github.com/SeppPenner/6a5a30ebc8f79936fa136c524417761d
