@@ -1,0 +1,9 @@
+#컨테이너 중지후 commit (image_name소문자)
+docker commit -a "작성자" container_id image_name/tag 
+#docker login
+docker login
+#image push
+#docker tag 이미지이름 사용자이름/이미지:태크
+#ex)docker tag apm/0.1 es3242/apm:0.1
+#docker image push <docker ID/Image name:tag>
+#ex)docker image push es3242/apm:0.1
