@@ -1,0 +1,33 @@
+#raspbian/stretch 이미지 사용
+
+apt update
+apt upgrade
+apt install apache2
+apt install php php-fpm php-curl php-gd php-intl php-mbstring php-mysql php-soap php-xml php-xmlrpc php-zip libapache2-mod-php
+# phpinfo.php 파일생성
+nano /var/www/html/phpinfo.php 
+# php 설명 파일 작성. ctrl+x, y, enter 키 순서대로 입력
+<?php phpinfo(); ?>
+apt install mariadb-server
+#서비스 시작
+service mysql start
+#enter누르고 y, 최초비밀번호 2번 입력, 모두 y
+mysql_secure_installation
+#mariaDB 접속
+mysql -u root -p
+#utf8 인코딩, testDB라는 이름으로 새로운 데이터 베이스를 생성하는 의미이며 testDB 이름은 원하는 이름으로 변경하면 됨
+CREATE DATABASE testDB DEFAULT CHARACTER SET utf8;
+#종료
+quit
+#phpmyadmin 설치, 관리자 비번설정하기
+apt install phpmyadmin
+# /var/www/html 경로에 /usr/share/phpmyadmin 경로의 링크를 추가
+ln -s /usr/share/phpmyadmin /var/www/html
+#mysql접속
+mysql
+#phpmyadmin 유저에게 모든 데이터베이스의 권한을 부여해주는 명령어
+GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost';
+
+#도커 컨테이너 이미지화 (중지후)
+docker commit -a "작성자" container_id image_name/tag
+
