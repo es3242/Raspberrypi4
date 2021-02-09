@@ -1,10 +1,12 @@
 Installing Python 3.7.4 on Raspbian
 
 1.Install the required build-tools (some might already be installed on your system).
-1)apt-get update -y
-2)apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev -y
+
+apt-get update -y
+apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev -y
 
 2.Download and install Python 3.7.4. When downloading the source code, select the most recent release of Python, available on the official site. Adjust the file names accordingly.
+
 wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
 tar xf Python-3.7.4.tar.xz
 cd Python-3.7.4
@@ -22,6 +24,7 @@ sudo apt-get --purge remove libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev -
 sudo apt-get --purge remove libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev -y
 sudo apt-get autoremove -y
 sudo apt-get clean
+
 or simply copy the setup.sh content to a file called setup.sh, do a chmod +x setup.sh and execute the script via sudo ./setup.sh
 
 Afterwards, execute any of your scripts (yourscript.py is just a placeholder) using
