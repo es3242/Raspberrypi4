@@ -41,6 +41,8 @@ make
 #더오래 걸림
 make check
 
+make install
+
 cd python
 export LD_LIBRARY_PATH=../src/.libs
 
@@ -49,7 +51,7 @@ python3 setup.py test --cpp_implementation
 python3 setup.py install --cpp_implementation
 
 export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
-export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION_VERSION=3
+export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
 
 ldconfig
 protoc
@@ -60,6 +62,13 @@ reboot now
 #처음화면에서
 mkdir tensorflow1
 cd tensorflow1
+
+#git 설치
+apt update
+apt install git -y
+
+#버전 확인
+git --version
 
 git clone --depth 1 https://github.com/tensorflow/models.git
 
