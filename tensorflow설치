@@ -17,7 +17,6 @@ pip3 install tensorflow
 
 #open cv설치
 
-##open CV설치
 
 apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev -y
 apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
