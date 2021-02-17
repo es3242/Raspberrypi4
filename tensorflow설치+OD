@@ -29,6 +29,8 @@ pip3 install opencv-python
 
 apt-get install autoconf automake libtool curl -y
 
+#가장 최신버전 protobuf - all로 받기 https://github.com/protocolbuffers/protobuf/releases
+
 wget https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-all-3.14.0.tar.gz
 
 #tap키 완성하기
@@ -74,7 +76,35 @@ git clone --depth 1 https://github.com/tensorflow/models.git
 
 #파일열고
 nano ~/.bashrc
-#파일 마지막으로 이동후 끝에 붙여줌 저장후 exit.
+#파일 마지막으로 이동후 끝에 붙여줌 저장후 exit. (저장: ctrl+x, y, enter 키 순서대로 입력)
 export PYTHONPATH=$PYTHONPATH:/home/pi/tensorflow1/models/research:/home/pi/tensorflow1/models/research/slim
+
+echo $PYTHONPATH
+
+#컨테이너 껐다 키고 다시 하면 경로 보임
+echo $PYTHONPATH
+
+#
+cd tensorflow1/models/research/object_detection/
+
+#https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md
+#Download the SSDLite-MobileNet model and unpack it by issuing
+wget http://download.tensorflow.org/models/object_detection/ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+
+tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+
+cd ~
+cd tensorflow1/models/research
+protoc object_detection/protos/*.proto --python_out=.
+cd object_detection/protos/
+#확인
+ls
+
+#파이 카메라 사용
+#Download the Object_detection_picamera.py file into the object_detection directory by
+wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi/master/Object_detection_picamera.py
+
+#Run the script by issuing:
+python3 Object_detection_picamera.py 
 
 
