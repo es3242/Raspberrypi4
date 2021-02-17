@@ -1,0 +1,72 @@
+#python pip 설치
+apt-get install python3 python3-pip --y
+
+#파일지정
+mkdir tf
+cd tf
+
+#
+apt-get install libatlas-base-dev
+# OD 위해 필요
+pip3 install pillow lxml jupyter matplotlib cython
+apt-get install python-tk -y
+
+
+#tf설치
+pip3 install tensorflow
+
+#open cv설치
+
+##open CV설치
+
+apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev -y
+apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
+apt-get install libxvidcore-dev libx264-dev -y
+apt-get install qt4-dev-tools -y
+
+pip3 install opencv-python
+
+#protobuf
+
+apt-get install autoconf automake libtool curl -y
+
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-all-3.14.0.tar.gz
+
+#tap키 완성하기
+tar -zxvf protobuf-all-3.14.0.tar.gz
+cd protobuf-3.14.0
+./configure
+
+#한시간 걸림
+make
+#더오래 걸림
+make check
+
+cd python
+export LD_LIBRARY_PATH=../src/.libs
+
+python3 setup.py build --cpp_implementation 
+python3 setup.py test --cpp_implementation
+python3 setup.py install --cpp_implementation
+
+export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
+export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION_VERSION=3
+
+ldconfig
+protoc
+
+#reboot 해야 tf 동작함
+reboot now
+
+#처음화면에서
+mkdir tensorflow1
+cd tensorflow1
+
+git clone --depth 1 https://github.com/tensorflow/models.git
+
+#파일열고
+nano ~/.bashrc
+#파일 마지막으로 이동후 끝에 붙여줌 저장후 exit.
+export PYTHONPATH=$PYTHONPATH:/home/pi/tensorflow1/models/research:/home/pi/tensorflow1/models/research/slim
+
+
