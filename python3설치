@@ -30,3 +30,19 @@ or simply copy the setup.sh content to a file called setup.sh, do a chmod +x set
 Afterwards, execute any of your scripts (yourscript.py is just a placeholder) using
 
 python3.7 yourscript.py.
+
+##그래도 계속 이전 파이썬 버전으로 확인 된다면 파이썬 버전 변경 해주기
+ex) 기존 3.5.3 에서 3.7.4 로 경로 변경
+
+버전 확인
+python3 --version 
+
+기존 파이썬 위치 확인
+1. which python3
+
+변경할 새로운 파이썬의 위치 확인 (3.7.4이므로 3.7)
+2. which python3.7
+
+디폴트 파이썬을 바꿔줌
+3.sudo ln -sf [이전버전 경로] [새버전 경로]
+ex) sudo ln -sf /usr/local/bin/python3.7 /usr/bin/python3
