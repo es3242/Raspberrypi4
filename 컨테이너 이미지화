@@ -1,3 +1,5 @@
+#컨테이너 중지
+docker stop <컨테이너 이름/아이디>
 #컨테이너 중지후 commit (image_name소문자)
 docker commit -a "작성자" container_id image_name/tag 
 #docker login
