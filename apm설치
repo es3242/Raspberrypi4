@@ -3,6 +3,9 @@
 apt update
 apt upgrade
 apt install apache2
+# +아파치 실행 해보기
+service apache2 start
+
 apt install php php-fpm php-curl php-gd php-intl php-mbstring php-mysql php-soap php-xml php-xmlrpc php-zip libapache2-mod-php
 # phpinfo.php 파일생성
 nano /var/www/html/phpinfo.php 
